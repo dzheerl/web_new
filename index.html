@@ -7,27 +7,28 @@
   <title>Main</title>
 </head>
 <body>
-  <header>
-    <div>
-      <img src="image/label/Escape.svg" title="Escape." alt="'Escape." />
-      <!-- <span>Escape.</span> -->
-      <nav>
-        <a href="#">HOME</a>
-        <a href="#">CATEGORIES</a>
-        <a href="#">ABOUT</a>
-        <a href="#">CONTACT</a>
-      </nav>
-      <h1>Let's do it together.</h1>
-      <p>We travel the world in search of stories. Come along for the ride.</p>
-      <button >View Latest Posts</button>
+  <header class="body-header">
+    <div class="body-header__group">
+      <div class="body-header__group__top">
+        <img class="body-header__group__top__label" src="image/label/Escape.svg" title="Escape." alt="'Escape." />
+        <nav class="body-header__group__top__navigation">
+          <a class="body-header__group__top__navigation__text" href="#">HOME</a>
+          <a class="body-header__group__top__navigation__text" href="#">CATEGORIES</a>
+          <a class="body-header__group__top__navigation__text" href="#">ABOUT</a>
+          <a class="body-header__group__top__navigation__text" href="#">CONTACT</a>
+        </nav>
+      </div>  
+      <h1 class="body-header__group__title">Let's do it together.</h1>
+      <p class="body-header__group__undertitle">We travel the world in search of stories. Come along for the ride.</p>
+      <button class="body-header__group__button">View Latest Posts</button>
     </div>    
-    <nav>
-      <a href="#">Nature</a>
-      <a href="#">Photography</a>
-      <a href="#">Relaxation</a>
-      <a href="#">Vacation</a>
-      <a href="#">Travel</a>
-      <a href="#">Adventure</a>
+    <nav class="body-header__bot">
+      <a class="body-header__bot__text" href="#">Nature</a>
+      <a class="body-header__bot__text" href="#">Photography</a>
+      <a class="body-header__bot__text" href="#">Relaxation</a>
+      <a class="body-header__bot__text" href="#">Vacation</a>
+      <a class="body-header__bot__text" href="#">Travel</a>
+      <a class="body-header__bot__text" href="#">Adventure</a>
     </nav>
   </header>
   <section class="main-section">
@@ -115,15 +116,17 @@
       </div>
     </div>
   </section>
-  <footer>
+  <footer class="body-bottom">
+    <div class="body-bottom__group">
       <!-- <span>Escape.</span> -->
-    <img src="image/label/Escape.svg" title="Escape." alt="'Escape." />
-    <nav>
-      <a href="#">HOME</a>
-      <a href="#">CATEGORIES</a>
-      <a href="#">ABOUT</a>
-      <a href="#">CONTACT</a>
-    </nav>
+      <img class="body-bottom__group__label" src="image/label/Escape.svg" title="Escape." alt="'Escape." />
+      <nav class="body-bottom__group__navigation">
+        <a class="body-bottom__group__navigation__text" href="#">HOME</a>
+        <a class="body-bottom__group__navigation__text" href="#">CATEGORIES</a>
+        <a class="body-bottom__group__navigation__text" href="#">ABOUT</a>
+        <a class="body-bottom__group__navigation__text" href="#">CONTACT</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>
