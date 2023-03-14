@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <link rel="stylesheet" href="style.css">
-  <title>Web</title>
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Main</title>
 </head>
 <body>
   <header>
-    <div class="head_pict">
-      <span>Escape.</span>
-      <nav class="head_navigation">
+    <div>
+      <img src="image/label/Escape.svg" title="Escape." alt="'Escape." />
+      <!-- <span>Escape.</span> -->
+      <nav>
         <a href="#">HOME</a>
         <a href="#">CATEGORIES</a>
         <a href="#">ABOUT</a>
         <a href="#">CONTACT</a>
       </nav>
-      <h1 class="main_note">Let's do it together.</h1>
-      <p class="under_main_note">We travel the world in search of stories. Come along for the ride.</p>
+      <h1>Let's do it together.</h1>
+      <p>We travel the world in search of stories. Come along for the ride.</p>
       <button >View Latest Posts</button>
     </div>    
     <nav>
@@ -28,101 +30,100 @@
       <a href="#">Adventure</a>
     </nav>
   </header>
-  <section>
-    <h2 class="chapter">Featured Posts</h2>
-    <div>
-      <span>The Road Ahead</span>
-      <p>The road ahead might be paved - it might not be.</p>
-      <div>
-        <img src="img/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
-        <span>Mat Vogels</span>
-        <span>September 25, 2015</span>
+  <section class="main-section">
+    <h2 class="main-section__header">Featured Posts</h2>
+    <div class="main-section__card1">
+      <h3 class="main-section__card1__name">The Road Ahead</h3>
+      <p class="main-section__card1__desc">The road ahead might be paved - it might not be.</p>
+      <div class="main-section__card1__inf">
+        <img class="main-section__card1__inf__av" src="image/photo_svg/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
+        <span class="main-section__card1__inf__username">Mat Vogels</span>
+        <span class="main-section__card1__inf__date">September 25, 2015</span>
       </div>  
     </div>
-    <div>
-      <span>Adventure</span>
-      <span>From Top Down</span>
-      <p>Once a year, go someplace you’ve never been before.</p>
-      <div>
-        <img src="img/image2.svg" title="William Wong" alt="William Wong" />
-        <span>William Wong</span>
-        <span>September 25, 2015</span>
-      </div>  
+    <div class="main-section__card2">
+      <span class="main-section__card2__theme">Adventure</span>
+      <h3 class="main-section__card2__name">From Top Down</h3>
+      <p class="main-section__card2__desc">Once a year, go someplace you’ve never been before.</p>
+      <div class="main-section__card2__inf">
+        <img class="main-section__card2__inf__av" src="image/photo_svg/image2.svg" title="William Wong" alt="William Wong" />
+        <span class="main-section__card2__inf__username">William Wong</span>
+        <span class="main-section__card2__inf__date">September 25, 2015</span>
+      </div>
     </div>
   </section>
-  <section>
-    <h2 class="chapter">Most Recent</h2>
-    <div>
-      <img src="img/photo_card/card1.jpeg" title="Still Sanding Tall" alt="Still Sanding Tall">
-      <span>Still Sanding Tall</span>
-      <p>Life begins at the end of your comfort zone.</p>
-      <div>
-        <img src="img/image2.svg" title="William Wong" alt="William Wong" />
-        <span>William Wong</span>
-        <span>9/25/2015</span>        
+  <section class="other-section">
+    <h2 class="other-section__header">Most Recent</h2>
+    <div class="other-section__card">
+      <img class="other-section__card__img" src="image/img_page1/card1.jpeg" title="Still Sanding Tall" alt="Still Sanding Tall">
+      <h4 class="other-section__card__name">Still Standing Tall</h4>
+      <p class="other-section__card__desc">Life begins at the end of your comfort zone.</p>
+      <div class="other-section__card___inf">
+        <img class="other-section__card___inf__av" src="image/photo_svg/image2.svg" title="William Wong" alt="William Wong" />
+        <span class="other-section__card___inf__name">William Wong</span>
+        <span class="other-section__card___date">9/25/2015</span>
       </div>
     </div>
-    <div>
-      <img src="img/photo_card/card2.jpeg" title="Sunny Side Up" alt="Sunny Side Up">
-      <span>Sunny Side Up</span>
-      <p>No place is ever as bad as they tell you it’s going to be.</p>
-      <div>
-        <img src="img/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
-        <span>Mat Vogels</span>
-        <span>9/25/2015</span>        
+    <div class="other-section__card">
+      <img class="other-section__card__img" src="image/img_page1/card2.jpeg" title="Sunny Side Up" alt="Sunny Side Up">
+      <h4 class="other-section__card__name">Sunny Side Up</h4>
+      <p class="other-section__card__desc">No place is ever as bad as they tell you it’s going to be.</p>
+      <div class="other-section__card___inf">
+        <img class="other-section__card___inf__av" src="image/photo_svg/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
+        <span class="other-section__card___inf__name">Mat Vogels</span>
+        <span class="other-section__card___date">9/25/2015</span>
       </div>
     </div>
-    <div>
-      <img src="img/photo_card/card3.jpeg" title="Water Falls" alt="Water Falls">
-      <span>Water Falls</span>
-      <p>We travel not to escape life, but for life not to escape us.</p>
-      <div>
-        <img src="img/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
-        <span>Mat Vogels</span>
-        <span>9/25/2015</span>        
+    <div class="other-section__card">
+      <img class="other-section__card__img" src="image/img_page1/card3.jpeg" title="Water Falls" alt="Water Falls">
+      <h4 class="other-section__card__name">Water Falls</h4>
+      <p class="other-section__card__desc">We travel not to escape life, but for life not to escape us.</p>
+      <div class="other-section__card___inf">
+        <img class="other-section__card___inf__av" src="image/photo_svg/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
+        <span class="other-section__card___inf__name">Mat Vogels</span>
+        <span class="other-section__card___date">9/25/2015</span>
       </div>
     </div>
-    <div>
-      <img src="img/photo_card/card4.jpeg" title="Through the Mist" alt="Through the Mist">
-      <span>Through the Mist</span>
-      <p>We travel not to escape life, but for life not to escape us.</p>
-      <div>
-        <img src="img/image2.svg" title="William Wong" alt="William Wong" />
-        <span>William Wong</span>
-        <span>9/25/2015</span>        
+    <div class="other-section__card">
+      <img class="other-section__card__img" src="image/img_page1/card4.jpeg" title="Through the Mist" alt="Through the Mist">
+      <h4 class="other-section__card__name">Through the Mist</h4>
+      <p class="other-section__card__desc">We travel not to escape life, but for life not to escape us.</p>
+      <div class="other-section__card___inf">
+        <img class="other-section__card___inf__av" src="image/photo_svg/image2.svg" title="William Wong" alt="William Wong" />
+        <span class="other-section__card___inf__name">William Wong</span>
+        <span class="other-section__card___date">9/25/2015</span>
       </div>
     </div>
-    <div>
-      <img src="img/photo_card/card5.jpeg" title="Awaken Early" alt="Awaken Early">
-      <span>Awaken Early</span>
-      <p>Not all those who wander are lost.</p>
-      <div>
-        <img src="img/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
-        <span>Mat Vogels</span>
-        <span>9/25/2015</span>        
+    <div class="other-section__card">
+      <img class="other-section__card__img" src="image/img_page1/card5.jpeg" title="Awaken Early" alt="Awaken Early">
+      <h4 class="other-section__card__name">Awaken Early</h4>
+      <p class="other-section__card__desc">Not all those who wander are lost.</p>
+      <div class="other-section__card___inf">
+        <img class="other-section__card___inf__av" src="image/photo_svg/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
+        <span class="other-section__card___inf__name">Mat Vogels</span>
+        <span class="other-section__card___date">9/25/2015</span>
       </div>
     </div>
-    <div>
-      <img src="img/photo_card/card6.jpeg" title="Try it Always" alt="Try it Always">
-      <span>Try it Always</span>
-      <p>The world is a book, and those who do not travel read only one page.</p>
-      <div>
-        <img src="img/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
-        <span>Mat Vogels</span>
-        <span>9/25/2015</span>        
+    <div class="other-section__card">
+      <img class="other-section__card__img" src="image/img_page1/card6.jpeg" title="Try it Always" alt="Try it Always">
+      <h4 class="other-section__card__name">Try it Always</h4>
+      <p class="other-section__card__desc">The world is a book, and those who do not travel read only one page.</p>
+      <div class="other-section__card___inf">
+        <img class="other-section__card___inf__av" src="image/photo_svg/image1.svg" title="Mat Vogels" alt="Mat Vogels" />
+        <span class="other-section__card___inf__name">Mat Vogels</span>
+        <span class="other-section__card___date">9/25/2015</span>
       </div>
     </div>
   </section>
   <footer>
-    <div>
-      <span>Escape.</span>
-      <nav class="head_navigation">
-        <a href="#">HOME</a>
-        <a href="#">CATEGORIES</a>
-        <a href="#">ABOUT</a>
-        <a href="#">CONTACT</a>
-      </nav>
-    </div>
-  </footer>    
+      <!-- <span>Escape.</span> -->
+    <img src="image/label/Escape.svg" title="Escape." alt="'Escape." />
+    <nav>
+      <a href="#">HOME</a>
+      <a href="#">CATEGORIES</a>
+      <a href="#">ABOUT</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </footer>
 </body>
 </html>

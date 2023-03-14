@@ -1,0 +1,184 @@
+body
+{
+    background: #F7F7F7;
+}
+
+.main-section
+{
+
+}
+
+.main-section__card1
+{
+    position: relative;
+    background: url("../image/img_page1/main_card_1.png") no-repeat;
+    width: 460px;
+    height: 280px;
+}
+
+.main-section__card2
+{
+    position: relative;
+    background: url("../image/img_page1/main_card_2.png") no-repeat;
+    width: 460px;
+    height: 280px;
+}
+
+.main-section__card1__name, .main-section__card2__name
+{
+    font-family: 'Lora';
+    font-size: 27px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin: 0;
+    position: absolute;
+    top: 157px;
+    right: 236px;
+    bottom: 93px;
+    left: 20px;
+}
+
+.main-section__card1__desc, .main-section__card2__desc
+{
+    font-family: 'Oxygen';
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    width: 344px;
+    position: absolute;
+    top: 193px;
+    right: 124px;
+    bottom: 62px;
+    left: 20px;
+}
+
+.main-section__card1__inf__av, .main-section__card2__inf__av
+{
+    position: absolute;
+    top: 235px;
+    right: 414px;
+    bottom: 19px;
+    left: 20px;
+}
+
+.main-section__card1__inf__username, .main-section__card2__inf__username
+{
+    margin-top: 6px;
+    width: 90px;
+    font-family: 'Oxygen';
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 235px;
+    right: 343px;
+    bottom: 19px;
+    left: 56px;  
+}
+
+.main-section__card1__inf__date, .main-section__card2__inf__date
+{
+    margin-top: 6px;
+    font-family: 'Oxygen';
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 235px;
+    right: 20px;
+    bottom: 19px;
+    left: 332px;
+}
+
+.other-section__card
+{
+    position: relative;
+    width: 296px;
+    height: 291px;
+    background: #FFFFFF;
+}
+
+.other-section__card__img
+{
+    position: absolute;
+    width: 296px;
+    height: 150px;
+}
+
+.other-section__card__name
+{
+    font-family: 'Lora';
+    font-size: 16px;
+    font-weight: 400;
+    color: #101315;
+    margin: 0;
+    width: 133px;
+    position: absolute;
+    top: 164px;
+    right: 150px;
+    bottom: 106px;
+    left: 13px;    
+}
+
+.other-section__card__desc
+{
+    font-family: 'Oxygen';
+    font-size: 13px;
+    font-weight: 400;
+    color: #7A7A7A;
+    margin: 0;
+    width: 255px;
+    position: absolute;
+    top: 191px;
+    right: 28px;
+    bottom: 81px;
+    left: 13px;
+}
+
+.other-section__card___inf
+{
+    border-top: 1px solid #EFEFEF;
+    position: relative;
+    width: 296px;
+    height: 48px;
+    top: 243px;
+}
+
+.other-section__card___inf__av
+{
+    position: absolute;
+    top: 12px;
+    right: 257px;
+    bottom: 10px;
+    left: 13px;
+}
+
+.other-section__card___inf__name
+{
+    margin-top: 10px;
+    width: 90px;
+    font-family: 'Oxygen';
+    font-size: 11px;
+    font-weight: 400;
+    color: #999999;
+    position: absolute;
+    top: 7px;
+    right: 171px;
+    bottom: 6px;
+    left: 49px;  
+}
+
+.other-section__card___date
+{
+    margin-top: 10px;
+    font-family: 'Oxygen';
+    font-size: 12px;
+    font-weight: 400;
+    color: #999999;
+    position: absolute;
+    top: 7px;
+    right: 13px;
+    bottom: 6px;
+    left: 225px;
+}
