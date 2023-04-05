@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap" rel="stylesheet">
+  <link href="../static/css/style.css" rel="stylesheet">
+  <title>Main</title>
+</head>
+
+<body>
+  <header class="header page1">
+    <div class="menu header__menu">
+      <img class="menu__img" src="../static/img/label/Escape.svg" title="Escape." alt="'Escape." />
+      <nav class="navigtaion">
+        <a class="navigation__items navigation__items_header" href="#">HOME</a>
+        <a class="navigation__items navigation__items_header" href="#">CATEGORIES</a>
+        <a class="navigation__items navigation__items_header" href="#">ABOUT</a>
+        <a class="navigation__items navigation__items_header" href="#">CONTACT</a>
+      </nav>
+    </div>
+    <h1 class="header__title white">Let's do it together.</h1>
+    <p class="header__undertitle pwhite ">We travel the world in search of stories. Come along for the ride.</p>
+    <button class="header__button">View Latest Posts</button>
+  </header>
+  <div class="topic-background">
+    <nav class="topic">
+      <a class="topic__items" href="#">Nature</a>
+      <a class="topic__items" href="#">Photography</a>
+      <a class="topic__items" href="#">Relaxation</a>
+      <a class="topic__items" href="#">Vacation</a>
+      <a class="topic__items" href="#">Travel</a>
+      <a class="topic__items" href="#">Adventure</a>
+    </nav>
+  </div>
+  <section class="main-section">
+    <h2 class="main-section__title mid">Featured Posts</h2>
+    {{ range .FeaturedPost }}
+    <div class="main-card {{ .Image_url  }}">
+      <span class="main-card__theme {{ if .Theme}} {{else}} main-card__theme_none {{end}}">{{ .Theme }}</span>
+      <h3 class="main-card__name">{{ .Title }}</h3>
+      <p class="main-card__desc bot-info-color">{{ .Subtitle }}</p>
+      <div class="card-info">
+        <img class="card-info__avatar" src={{ .Author_url }} title={{ .Author }} alt={{ .Author }} />
+        <span class="card-info__username bot-info-color">{{ .Author }}</span>
+        <span class="card-info__date bot-info-color">{{ .Publish_date }}</span>
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  <section class="other-section">
+    <h2 class="other-section__header mid">Most Recent</h2>
+    {{ range .MostRecentPost }}
+    <div class="other-card">
+      <img class="other-card__img" src={{ .Image_url }} title={{ .Title }} alt={{ .Title }}>
+      <h4 class="other-card__name">{{ .Title }}</h4>
+      <p class="other-card__desc">{{ .Subtitle }}</p>
+      <div class="card-info-other">
+        <img class="card-info-other__avatar" src={{ .Author_url }} title={{ .Author }} alt={{ .Author }} />
+        <span class="card-info-other__username">{{ .Author }}</span>
+        <span class="card-info-other__date">{{ .Publish_date }}</span>
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  <footer class="footer">
+    <h2 class="footer-title bottom">Stay in touch</h2>
+    <form class="form">
+      <input type="email" name="email" class="form__input" placeholder="Enter your email address">
+      <button class="form__button">Submit</button>
+    </form>
+    <div class="footer-menu-background">
+      <div class="menu footer__menu">
+        <img class="menu_img" src="../static/img/label/Escape.svg" title="Escape." alt="'Escape." />
+        <nav class="navigtaion">
+          <a class="navigation__items navigation__items_footer" href="#">HOME</a>
+          <a class="navigation__items navigation__items_footer" href="#">CATEGORIES</a>
+          <a class="navigation__items navigation__items_footer" href="#">ABOUT</a>
+          <a class="navigation__items navigation__items_footer" href="#">CONTACT</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

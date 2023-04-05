@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap" rel="stylesheet">
+  <link href="../static/css/style.css" rel="stylesheet">
+  <title>The Road Ahead</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="menu header__menu">
+      <img class="menu__img" src="../static/img/img_page2/label.svg" title="Escape." alt="'Escape." />
+      <nav class="navigtaion">
+        <a class="navigation__items navigation__items_black" href="#">HOME</a>
+        <a class="navigation__items navigation__items_black" href="#">CATEGORIES</a>
+        <a class="navigation__items navigation__items_black" href="#">ABOUT</a>
+        <a class="navigation__items navigation__items_black" href="#">CONTACT</a>
+      </nav>
+    </div>
+    <h1 class="header__title black">{{ .Title }}</h1>
+    <p class="header__undertitle pblack">{{ .Subtitle }}</p>
+  </header>
+  <section class="main-block">
+    <img class="main-block__img" src={{ .Imgphoto }} title={{ .Title }} alt="The Road Ahead">
+    <div class="main-block__desc">
+      <p class="main-block__desc_text">
+        {{ .Description }}
+      </p class="main-block__desc_text">
+    </div>
+  </section>
+  </section>
+  <footer class="footer">
+    <h2 class="footer-title bottom">Stay in touch</h2>
+    <form class="form">
+      <input type="email" name="email" class="form__input" placeholder="Enter your email address">
+      <button class="form__button">Submit</button>
+    </form>
+    <div class="footer-menu-background">
+      <div class="menu footer__menu">
+        <img class="menu_img" src="../static/img/label/Escape.svg" title="Escape." alt="'Escape." />
+        <nav class="navigtaion">
+          <a class="navigation__items navigation__items_footer" href="#">HOME</a>
+          <a class="navigation__items navigation__items_footer" href="#">CATEGORIES</a>
+          <a class="navigation__items navigation__items_footer" href="#">ABOUT</a>
+          <a class="navigation__items navigation__items_footer" href="#">CONTACT</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
