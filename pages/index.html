@@ -38,15 +38,18 @@
   <section class="main-section">
     <h2 class="main-section__title mid">Featured Posts</h2>
     {{ range .FeaturedPost }}
-    <div class="main-card {{ .Image_url  }}">
-      <span class="main-card__theme {{ if .Theme}} {{else}} main-card__theme_none {{end}}">{{ .Theme }}</span>
-      <h3 class="main-card__name">{{ .Title }}</h3>
-      <p class="main-card__desc bot-info-color">{{ .Subtitle }}</p>
-      <div class="card-info">
-        <img class="card-info__avatar" src={{ .Author_url }} title={{ .Author }} alt={{ .Author }} />
-        <span class="card-info__username bot-info-color">{{ .Author }}</span>
-        <span class="card-info__date bot-info-color">{{ .Publish_date }}</span>
-      </div>
+    <div class="main-card">
+      <a href="{{ .PostURL }}" class="main-card_wrapper"
+        style="background: url({{ .Image_url  }}); background-size: 100% 100%">
+        <span class="main-card__theme {{ if .Theme}} {{else}} main-card__theme_none {{end}}">{{ .Theme }}</span>
+        <h3 class="main-card__name">{{ .Title }}</h3>
+        <p class="main-card__desc bot-info-color">{{ .Subtitle }}</p>
+        <div class="card-info">
+          <img class="card-info__avatar" src={{ .Author_url }} title={{ .Author }} alt={{ .Author }} />
+          <span class="card-info__username bot-info-color">{{ .Author }}</span>
+          <span class="card-info__date bot-info-color">{{ .Publish_date }}</span>
+        </div>
+      </a>
     </div>
     {{ end }}
   </section>
@@ -54,14 +57,16 @@
     <h2 class="other-section__header mid">Most Recent</h2>
     {{ range .MostRecentPost }}
     <div class="other-card">
-      <img class="other-card__img" src={{ .Image_url }} title={{ .Title }} alt={{ .Title }}>
-      <h4 class="other-card__name">{{ .Title }}</h4>
-      <p class="other-card__desc">{{ .Subtitle }}</p>
-      <div class="card-info-other">
-        <img class="card-info-other__avatar" src={{ .Author_url }} title={{ .Author }} alt={{ .Author }} />
-        <span class="card-info-other__username">{{ .Author }}</span>
-        <span class="card-info-other__date">{{ .Publish_date }}</span>
-      </div>
+      <a href="{{ .PostURL }}" class="other-card_wrapper">
+        <img class="other-card__img" src={{ .Image_url }} title={{ .Title }} alt={{ .Title }}>
+        <h4 class="other-card__name">{{ .Title }}</h4>
+        <p class="other-card__desc">{{ .Subtitle }}</p>
+        <div class="card-info-other">
+          <img class="card-info-other__avatar" src={{ .Author_url }} title={{ .Author }} alt={{ .Author }} />
+          <span class="card-info-other__username">{{ .Author }}</span>
+          <span class="card-info-other__date">{{ .Publish_date }}</span>
+        </div>
+      </a>
     </div>
     {{ end }}
   </section>

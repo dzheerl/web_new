@@ -1,26 +1,31 @@
 package main
 
 import (
+	"database/sql"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"strconv"
 
+	"github.com/gorilla/mux"
 	"github.com/jmoiron/sqlx"
 )
 
 type indexPage struct {
-	FeaturedPost   []featuredPostData
-	MostRecentPost []mostRecentPostData
+	FeaturedPost   []*featuredPostData
+	MostRecentPost []*mostRecentPostData
 }
 
 type postPage struct {
-	Title       string
-	Subtitle    string
-	Imgphoto    string
-	Description string
+	Title       string `db:"title"`
+	Subtitle    string `db:"subtitle"`
+	Imgphoto    string `db:"image_url"`
+	Description string `db:"content"`
 }
 
 type featuredPostData struct {
+	PostID       string `db:"post_id"`
 	Title        string `db:"title"`
 	Subtitle     string `db:"subtitle"`
 	Author       string `db:"author"`
@@ -28,15 +33,18 @@ type featuredPostData struct {
 	Publish_date string `db:"publish_date"`
 	Image_url    string `db:"image_url"`
 	Theme        string `db:"theme"`
+	PostURL      string
 }
 
 type mostRecentPostData struct {
+	PostID       string `db:"post_id"`
 	Title        string `db:"title"`
 	Subtitle     string `db:"subtitle"`
 	Author       string `db:"author"`
 	Author_url   string `db:"author_url"`
 	Publish_date string `db:"publish_date"`
 	Image_url    string `db:"image_url"`
+	PostURL      string
 }
 
 func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
@@ -49,10 +57,17 @@ func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 		}
 
 		mostRecentPosts, err := mostRecentPosts(db) // вызов функции mostRecentPosts
-		ts, err := template.ParseFiles("pages/index.html")
+
 		if err != nil {
 			http.Error(w, "Internal Server Error", 500)
 			log.Println(err.Error())
+			return
+		}
+
+		ts, err := template.ParseFiles("pages/index.html")
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err)
 			return
 		}
 
@@ -72,32 +87,54 @@ func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func post(w http.ResponseWriter, r *http.Request) {
-	ts, err := template.ParseFiles("pages/post.html") // Главная страница блога
-	if err != nil {
-		http.Error(w, "Internal Server Error", 500) // В случае ошибки парсинга - возвращаем 500
-		log.Println(err.Error())                    // Используем стандартный логгер для вывода ошбики в консоль
-		return                                      // Не забываем завершить выполнение ф-ии
-	}
+func post(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		postIDStr := mux.Vars(r)["postID"] // Получаем postID в виде строки из параметров урла
 
-	data := postPage{
-		Title:       "Test",
-		Subtitle:    "The road ahead might be paved - it might not be.",
-		Imgphoto:    "../static/img/img_page2/photo_page2.jpg",
-		Description: "Dark spruce foimagest frowned on either side the frozen waterway. The trees had been stripped by a recent wind of their white covering of frost, and they seemed to lean towards each other, black and ominous, in the fading light. A vast silence reigned over the land. The land itself was a desolation, lifeless, without movement, so lone and cold that the spirit of it was not even that of sadness. There was a hint in it of laughter, but of a laughter more terrible than any — a laughter that was mirthless as the smile of the sphinx, a laughter cold as the frost and partaking of the grimness of infallibility. It was the masterful and incommunicable wisdom of eternity laughing at the futility of life and the effort of life. It was the Wild, the savage, frozen-hearted Northland Wild. But there was life, abroad in the land and defiant. Down the frozen waterway toiled a string of wolfish dogs. Their bristly fur was rimed with frost. Their breath froze in the air as it left their mouths, spouting forth in spumes of vapour that settled upon the hair of their bodies and formed into crystals of frost. Leather harness was on the dogs, and leather traces attached them to a sled which dragged along behind. The sled was without runners. It was made of stout birch-bark, and its full surface imagested on the snow. The front end of the sled was turned up, like a scroll, in order to force down and under the bore of soft snow that surged like a wave before it. On the sled, securely lashed, was a long and narrow oblong box. There were other things on the sled—blankets, an axe, and a coffee-pot and frying-pan; but prominent, occupying most of the space, was the long and narrow oblong box. In advance of the dogs, on wide snowshoes, toiled a man. At the rear of the sled toiled a second man. On the sled, in the box, lay a third man whose toil was over,—a man whom the Wild had conquered and beaten down until he would never move nor struggle again. It is not the way of the Wild to like movement. Life is an offence to it, for life is movement; and the Wild aims always to destroy movement. It freezes the water to prevent it running to the sea; it drives the sap out of the trees till they are frozen to their mighty hearts; and most ferociously and terribly of all does the Wild harry and crush into submission man—man who is the most imagestless of life, ever in revolt against the dictum that all movement must in the end come to the cessation of movement. But at front and rear, unawed and indomitable, toiled the two men who were not yet dead. Their bodies were covered with fur and soft-tanned leather. Eyelashes and cheeks and lips were so coated with the crystals from their frozen breath that their faces were not discernible. This gave them the seeming of ghostly masques, undertakers in a spectral world at the funeral of some ghost. But under it all they were men, penetrating the land of desolation and mockery and silence, puny adventurers bent on colossal adventure, pitting themselves against the might of a world as remote and alien and pulseless as the abysses of space.",
-	}
+		postID, err := strconv.Atoi(postIDStr) // Конвертируем строку postID в число
+		if err != nil {
+			http.Error(w, "Invalid post id", 403)
+			log.Println(err)
+			return
+		}
 
-	err = ts.Execute(w, data) // Заставляем шаблонизатор вывести шаблон в тело ответа
-	if err != nil {
-		http.Error(w, "Internal Server Error", 500)
-		log.Println(err.Error())
-		return
+		post, err := postByID(db, postID)
+		if err != nil {
+			if err == sql.ErrNoRows {
+				// sql.ErrNoRows возвращается, когда в запросе к базе не было ничего найдено
+				// В таком случае мы возвращем 404 (not found) и пишем в тело, что ордер не найден
+				http.Error(w, "Post not found", 404)
+				log.Println(err)
+				return
+			}
+
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err)
+			return
+		}
+
+		ts, err := template.ParseFiles("pages/post.html")
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err)
+			return
+		}
+
+		err = ts.Execute(w, post)
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err)
+			return
+		}
+
+		log.Println("Request completed successfully")
 	}
 }
 
-func featuredPost(db *sqlx.DB) ([]featuredPostData, error) {
+func featuredPost(db *sqlx.DB) ([]*featuredPostData, error) {
 	const query = `
 		SELECT
+		  post_id,
 		  title,
 			subtitle,
 			author,
@@ -110,36 +147,74 @@ func featuredPost(db *sqlx.DB) ([]featuredPostData, error) {
 		WHERE featured = 1		
 	` // Составляем SQL-запрос для получения записей для секции featured-posts
 
-	var posts []featuredPostData
+	var posts []*featuredPostData
 
 	err := db.Select(&posts, query) // Делаем запрос в базу данных
 	if err != nil {                 // Проверяем, что запрос в базу данных не завершился с ошибкой
 		return nil, err
 	}
 
+	for _, post := range posts {
+		post.PostURL = "/post/" + post.PostID // Формируем исходя из ID поста в базе
+	}
+
+	fmt.Println(posts)
+
 	return posts, nil
 }
 
-func mostRecentPosts(db *sqlx.DB) ([]mostRecentPostData, error) {
+func mostRecentPosts(db *sqlx.DB) ([]*mostRecentPostData, error) {
 	const query = `
 		SELECT
+		  post_id,
 		  title,
-			subtitle,
-			author,
-			author_url,
-			publish_date,
-			image_url
+		  subtitle,
+		  author,
+		  author_url,
+		  publish_date,
+		  image_url
 		FROM
 		  post
 		WHERE featured = 0		
 	` // Составляем SQL-запрос для получения записей для секции featured-posts
 
-	var posts []mostRecentPostData
+	var posts []*mostRecentPostData
 
 	err := db.Select(&posts, query) // Делаем запрос в базу данных
 	if err != nil {                 // Проверяем, что запрос в базу данных не завершился с ошибкой
 		return nil, err
 	}
 
+	for _, post := range posts {
+		post.PostURL = "/post/" + post.PostID // Формируем исходя из ID поста в базе
+	}
+
+	fmt.Println(posts)
+
 	return posts, nil
+}
+
+func postByID(db *sqlx.DB, postID int) (postPage, error) {
+	const query = `
+		SELECT
+			title,
+			subtitle,
+			image_url,
+			content
+		FROM
+			` + "`post`" + `
+		WHERE
+			post_id = ?
+	`
+	// В SQL-запросе добавились параметры, как в шаблоне. ? означает параметр, который мы передаем в запрос ниже
+
+	var post postPage
+
+	// Обязательно нужно передать в параметрах postID
+	err := db.Get(&post, query, postID)
+	if err != nil {
+		return postPage{}, err
+	}
+
+	return post, nil
 }

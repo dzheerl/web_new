@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap" rel="stylesheet">
   <link href="../static/css/style.css" rel="stylesheet">
-  <title>The Road Ahead</title>
+  <title>{{ .Title }}</title>
 </head>
 
 <body>
@@ -25,11 +25,11 @@
     <p class="header__undertitle pblack">{{ .Subtitle }}</p>
   </header>
   <section class="main-block">
-    <img class="main-block__img" src={{ .Imgphoto }} title={{ .Title }} alt="The Road Ahead">
+    <img class="main-block__img" src={{ .Imgphoto }} title={{ .Title }} alt={{ .Title }}>
     <div class="main-block__desc">
       <p class="main-block__desc_text">
         {{ .Description }}
-      </p class="main-block__desc_text">
+      </p>
     </div>
   </section>
   </section>
