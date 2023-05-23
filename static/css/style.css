@@ -170,6 +170,7 @@ body {
     align-self: center;
     align-items: center;
     justify-content: center;
+    max-width: 960px;
 }
 
 .main-section__title,

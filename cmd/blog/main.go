@@ -16,12 +16,12 @@ const (
 )
 
 func main() {
-	db, err := openDB() // Открываем соединение к базе данных в самом начале
+	db, err := openDB()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	dbx := sqlx.NewDb(db, dbDriverName) // Расширяем стандартный клиент к базе
+	dbx := sqlx.NewDb(db, dbDriverName)
 
 	mux := mux.NewRouter()
 	mux.HandleFunc("/home", index(dbx))
@@ -37,6 +37,5 @@ func main() {
 }
 
 func openDB() (*sql.DB, error) {
-	// Здесь прописываем соединение к базе данных
 	return sql.Open(dbDriverName, "root:cn24rkeK!@tcp(localhost:3306)/blog?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=true")
 }

@@ -1,15 +1,20 @@
-UPDATE post 
-SET content = 'Dark spruce forest frowned on either side the frozen waterway. The trees had been stripped by a recent wind of their white covering of frost, and they seemed to lean towards each other, black and ominous, in the fading light. A vast silence reigned over the land. The land itself was a desolation, lifeless, without movement, so lone and cold that the spirit of it was not even that of sadness. There was a hint in it of laughter, but of a laughter more terrible than any sadness—a laughter that was mirthless as the smile of the sphinx, a laughter cold as the frost and partaking of the grimness of infallibility. It was the masterful and incommunicable wisdom of eternity laughing at the futility of life and the effort of life. It was the Wild, the savage, frozen-hearted Northland Wild.
+UPDATE 
+  post 
+SET 
+  content = 
+'Dark spruce forest frowned on either side the frozen waterway. The trees had been stripped by a recent wind of their white covering of frost, and they seemed to lean towards each other, black and ominous, in the fading light. A vast silence reigned over the land. The land itself was a desolation, lifeless, without movement, so lone and cold that the spirit of it was not even that of sadness. There was a hint in it of laughter, but of a laughter more terrible than any sadness—a laughter that was mirthless as the smile of the sphinx, a laughter cold as the frost and partaking of the grimness of infallibility. It was the masterful and incommunicable wisdom of eternity laughing at the futility of life and the effort of life. It was the Wild, the savage, frozen-hearted Northland Wild.
 	
 But there was life, abroad in the land and defiant. Down the frozen waterway toiled a string of wolfish dogs. Their bristly fur was rimed with frost. Their breath froze in the air as it left their mouths, spouting forth in spumes of vapour that settled upon the hair of their bodies and formed into crystals of frost. Leather harness was on the dogs, and leather traces attached them to a sled which dragged along behind. The sled was without runners. It was made of stout birch-bark, and its full surface rested on the snow. The front end of the sled was turned up, like a scroll, in order to force down and under the bore of soft snow that surged like a wave before it. On the sled, securely lashed, was a long and narrow oblong box. There were other things on the sled—blankets, an axe, and a coffee-pot and frying-pan; but prominent, occupying most of the space, was the long and narrow oblong box.
 	
 In advance of the dogs, on wide snowshoes, toiled a man. At the rear of the sled toiled a second man. On the sled, in the box, lay a third man whose toil was over,—a man whom the Wild had conquered and beaten down until he would never move nor struggle again. It is not the way of the Wild to like movement. Life is an offence to it, for life is movement; and the Wild aims always to destroy movement. It freezes the water to prevent it running to the sea; it drives the sap out of the trees till they are frozen to their mighty hearts; and most ferociously and terribly of all does the Wild harry and crush into submission man—man who is the most restless of life, ever in revolt against the dictum that all movement must in the end come to the cessation of movement.
 	
 But at front and rear, unawed and indomitable, toiled the two men who were not yetdead. Their bodies were covered with fur and soft-tanned leather. Eyelashes and cheeks and lips were so coated with the crystals from their frozen breath that their faces were not discernible. This gave them the seeming of ghostly masques, undertakers in a spectral world at the funeral of some ghost. But under it all they were men, penetrating the land of desolation and mockery and silence, puny adventurers bent on colossal adventure, pitting themselves against the might of a world as remote and alien and pulseless as the abysses of space.' 
-WHERE post_id = 1;
+WHERE 
+  post_id = 1;
 
 
-UPDATE post SET content = 'As a traveler, I firmly believe that the best way to learn about the world is by experiencing it firsthand. Every time I embark on a new journey, I am reminded of how much there is to see and learn in this world. Recently, I went on a trip that took me from the top of a mountain down to the bottom of a valley. It was an exhilarating journey that left me with memories I will cherish for a lifetime.
+UPDATE post SET content = 
+'As a traveler, I firmly believe that the best way to learn about the world is by experiencing it firsthand. Every time I embark on a new journey, I am reminded of how much there is to see and learn in this world. Recently, I went on a trip that took me from the top of a mountain down to the bottom of a valley. It was an exhilarating journey that left me with memories I will cherish for a lifetime.
 	
 The journey began at the top of a mountain where I found myself surrounded by snow-capped peaks and breathtaking views. I had always dreamed of standing on top of a mountain and taking in the beauty of the world below. As I looked out at the vast expanse of wilderness, I felt a sense of awe and wonder. It was a moment of pure serenity that filled me with a sense of gratitude for the opportunity to experience such a beautiful place.
 	
@@ -21,7 +26,8 @@ In conclusion, my journey from top to bottom was a reminder of the beauty and wo
 
 
 UPDATE post 
-SET content = 'As a traveler, I’ve been to many different places and have seen countless stunning sights. However, there’s one journey that always stands out in my mind - a trip to the Sequoia National Park in California.
+SET content = 
+'As a traveler, I’ve been to many different places and have seen countless stunning sights. However, there’s one journey that always stands out in my mind - a trip to the Sequoia National Park in California.
 	
 The Sequoia National Park is home to some of the tallest trees in the world, including the General Sherman Tree, which stands at an impressive 275 feet tall. As I walked through the park, I couldn’t help but feel small in comparison to these towering giants.
 	
@@ -36,7 +42,8 @@ WHERE post_id = 3;
 
 
 UPDATE post 
-SET content = 'As a traveler, I am always on the lookout for new experiences and adventures, and my latest journey was no exception. This time around, I decided to explore some of the lesser-known corners of Southeast Asia, starting with the islands of Indonesia.
+SET content = 
+'As a traveler, I am always on the lookout for new experiences and adventures, and my latest journey was no exception. This time around, I decided to explore some of the lesser-known corners of Southeast Asia, starting with the islands of Indonesia.
 	
 My journey began in Bali, where I was greeted by the warm sunshine and the sound of waves crashing on the shore. I spent my days exploring the island''s many temples, hiking through lush jungles, and trying out delicious local cuisine. But it wasn''t until I made my way to the small island of Nusa Penida that I truly experienced the sunny side of this journey.
 	
@@ -53,7 +60,8 @@ WHERE post_id = 4;
 
 
 UPDATE post 
-SET content = 'As a traveler, I have had the opportunity to explore some of the most beautiful natural wonders that this world has to offer, but nothing quite compares to the majestic beauty of waterfalls. There is something about the raw power and grace of water cascading down rock faces that leaves you in awe and wonder.
+SET content = 
+'As a traveler, I have had the opportunity to explore some of the most beautiful natural wonders that this world has to offer, but nothing quite compares to the majestic beauty of waterfalls. There is something about the raw power and grace of water cascading down rock faces that leaves you in awe and wonder.
 
 The journey to discover some of the world''s most stunning waterfalls has taken me across different countries and continents. From the towering Angel Falls in Venezuela to the stunning Iguazu Falls on the border of Argentina and Brazil, each waterfall has its unique charm and allure.
 
@@ -68,7 +76,8 @@ WHERE post_id = 5;
 
 
 UPDATE post 
-SET content = 'As a traveler, I have come to realize that one of the most mesmerizing experiences is watching the world awaken from behind a veil of mist. It is a unique moment when everything around you remains shrouded in mystery, and all you can hear are the sounds of nature, and all you can feel is the cool breeze on your skin. It''s a moment that reminds you of how tiny you are in this vast world and how there''s so much more to explore beyond your comfort zone.
+SET content = 
+'As a traveler, I have come to realize that one of the most mesmerizing experiences is watching the world awaken from behind a veil of mist. It is a unique moment when everything around you remains shrouded in mystery, and all you can hear are the sounds of nature, and all you can feel is the cool breeze on your skin. It''s a moment that reminds you of how tiny you are in this vast world and how there''s so much more to explore beyond your comfort zone.
 
 I had the privilege of experiencing one such journey through the mist during my recent visit to the Scottish Highlands. As I set out on the trek, I was greeted with a dense fog that had descended upon the hills overnight. Initially, I felt a little apprehensive about navigating through the thick mist; however, as I began walking, I quickly realized that it was one of the most beautiful things I had ever experienced.
 
@@ -85,7 +94,8 @@ WHERE post_id = 6;
 
 
 UPDATE post 
-SET content = 'As a traveler, I have always believed in the adage that not all those who wander are lost. The journey itself is as important as the destination. One of my favorite things about traveling is experiencing the world wake up around me. There''s something magical about being up early, watching the sun rise over a new place, seeing the locals begin their day, and feeling like you have the whole world to yourself.
+SET content = 
+'As a traveler, I have always believed in the adage that not all those who wander are lost. The journey itself is as important as the destination. One of my favorite things about traveling is experiencing the world wake up around me. There''s something magical about being up early, watching the sun rise over a new place, seeing the locals begin their day, and feeling like you have the whole world to yourself.
 
 I call this particular journey, "Awaken Early." It was a trip I took to the beautiful city of Cusco, Peru. Cusco is a city steeped in history and culture, with stunning architecture and ancient ruins at every turn. But what made this journey truly special was the early mornings.
 

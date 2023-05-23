@@ -56,7 +56,7 @@ func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		mostRecentPosts, err := mostRecentPosts(db) // вызов функции mostRecentPosts
+		mostRecentPosts, err := mostRecentPosts(db)
 
 		if err != nil {
 			http.Error(w, "Internal Server Error", 500)
@@ -72,8 +72,8 @@ func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 		}
 
 		data := indexPage{
-			FeaturedPost:   featuredPosts,   // использование featuredPosts
-			MostRecentPost: mostRecentPosts, // использование mostRecentPosts
+			FeaturedPost:   featuredPosts,
+			MostRecentPost: mostRecentPosts,
 		}
 
 		err = ts.Execute(w, data)
@@ -89,9 +89,9 @@ func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 
 func post(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-		postIDStr := mux.Vars(r)["postID"] // Получаем postID в виде строки из параметров урла
+		postIDStr := mux.Vars(r)["postID"]
 
-		postID, err := strconv.Atoi(postIDStr) // Конвертируем строку postID в число
+		postID, err := strconv.Atoi(postIDStr)
 		if err != nil {
 			http.Error(w, "Invalid post id", 403)
 			log.Println(err)
@@ -101,8 +101,6 @@ func post(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 		post, err := postByID(db, postID)
 		if err != nil {
 			if err == sql.ErrNoRows {
-				// sql.ErrNoRows возвращается, когда в запросе к базе не было ничего найдено
-				// В таком случае мы возвращем 404 (not found) и пишем в тело, что ордер не найден
 				http.Error(w, "Post not found", 404)
 				log.Println(err)
 				return
@@ -145,17 +143,17 @@ func featuredPost(db *sqlx.DB) ([]*featuredPostData, error) {
 		FROM
 		  post
 		WHERE featured = 1		
-	` // Составляем SQL-запрос для получения записей для секции featured-posts
+	`
 
 	var posts []*featuredPostData
 
-	err := db.Select(&posts, query) // Делаем запрос в базу данных
-	if err != nil {                 // Проверяем, что запрос в базу данных не завершился с ошибкой
+	err := db.Select(&posts, query)
+	if err != nil {
 		return nil, err
 	}
 
 	for _, post := range posts {
-		post.PostURL = "/post/" + post.PostID // Формируем исходя из ID поста в базе
+		post.PostURL = "/post/" + post.PostID
 	}
 
 	fmt.Println(posts)
@@ -176,20 +174,18 @@ func mostRecentPosts(db *sqlx.DB) ([]*mostRecentPostData, error) {
 		FROM
 		  post
 		WHERE featured = 0		
-	` // Составляем SQL-запрос для получения записей для секции featured-posts
+	`
 
 	var posts []*mostRecentPostData
 
-	err := db.Select(&posts, query) // Делаем запрос в базу данных
-	if err != nil {                 // Проверяем, что запрос в базу данных не завершился с ошибкой
+	err := db.Select(&posts, query)
+	if err != nil {
 		return nil, err
 	}
 
 	for _, post := range posts {
-		post.PostURL = "/post/" + post.PostID // Формируем исходя из ID поста в базе
+		post.PostURL = "/post/" + post.PostID
 	}
-
-	fmt.Println(posts)
 
 	return posts, nil
 }
@@ -206,11 +202,9 @@ func postByID(db *sqlx.DB, postID int) (postPage, error) {
 		WHERE
 			post_id = ?
 	`
-	// В SQL-запросе добавились параметры, как в шаблоне. ? означает параметр, который мы передаем в запрос ниже
 
 	var post postPage
 
-	// Обязательно нужно передать в параметрах postID
 	err := db.Get(&post, query, postID)
 	if err != nil {
 		return postPage{}, err
